@@ -1,5 +1,5 @@
 # Format_converter
-**用于特定数据格式的转换**
+**实现对于WikiHowQA数据集的特定数据格式转换**
 ## 需要安装以下python包
 + `NLTK`用于分句
 ```
@@ -16,7 +16,9 @@ pip install NLTK
 
 **summary.txt**:
 | index | answer_all | summary |  
-| :-----: | :------: | :-------: |
+| :-----: | :------: | :-------: |  
+
+[WikiHowQA数据集下载](https://drive.google.com/open?id=1cpd0nXX5d4PbIYOyaDV-BTg3XyruKLXo)  
 + **输出**:
 
 **test_f.txt**:

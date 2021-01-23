@@ -5,7 +5,7 @@
 ```
 pip install NLTK
 ```
-要注意离线下载路径问题
+**Note：要注意NLTK离线下载路径问题。**  
 
 ## 数据格式
 + **输入**:
@@ -23,7 +23,7 @@ pip install NLTK
 | question | answer_split | label | index |
 | :--------: | :------: | :-----: | :-----: |
 
-其中`answer_all`和`answer_split`分别是是`question`的对应整段答案和对应单句答案  
+**Note：其中`answer_all`和`answer_split`分别是是`question`的对应整段答案和对应单句答案。**  
 
 ## 具体步骤	
 **1 提取出`label`为1的问答对**  
@@ -93,4 +93,9 @@ for (line1, line2) in zip(f1, f2):
     else:
         f3.write(ques + '\t' + tokens_answer[i] + '\t' + '0\t' + index.strip('\r\n') + '\n')
 ```
-若运行中止后想再次运行，注意手动删除中间文件
+
+## 使用方法  
+`python main.py test.txt summary.txt`  
+**Note：  
+格式转换完成后的数据文件存储在工程目录的final.txt中；  
+若运行中止后想再次运行，注意手动删除中间文件。**

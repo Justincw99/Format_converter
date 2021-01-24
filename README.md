@@ -1,26 +1,26 @@
-# Format_converter
-**specific data format conversion for wikihowqa data set**  
+# Format_transformer
+**specific data format transformation for wikihowqa data set**  
 ## Download
 + Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
-+ `NLTK`for tokenize
++ `NLTK` for tokenize
 ```
 pip install NLTK
 ```
 **Note：Pay attention to the path problem of nltk offline download and installation。**  
 ## Data format
-+ **input**:
++ **Input**
 
-**test.txt**:
+`test.txt`
 | question | index | label |
 | :--------: | :-----: | :----: |
 
-**summary.txt**:
+`summary.txt`
 | index | answer_all | summary |  
 | :-----: | :------: | :-------: |  
 
-+ **output**:
++ **Output**
 
-**final.txt**:
+`final.txt`
 | question | answer_split | label | index |
 | :--------: | :------: | :-----: | :-----: |
 
@@ -71,9 +71,9 @@ for i in list2:
 ```
 **3 Answer Selection**  
 
-Done by`find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)
+Done by `find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)
 
-**4 Use`ground_ Truth`and the file containing`question answer summary index' to generate data in the final format**
+**4 Use`ground_ Truth`and the file containing`question answer summary index`to generate data in the final format**
 ```python
 #遍历并提取
 for (line1, line2) in zip(f1, f2):
@@ -100,5 +100,5 @@ for (line1, line2) in zip(f1, f2):
 python main.py test.txt summary.txt
 ```
 **Note：  
-The data file after format conversion is stored in final.txt.  
+The data file after format transformation is stored in `final.txt`.  
 Delete the intermediate file manually if you want to run again after failed.**

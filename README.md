@@ -1,7 +1,7 @@
 # Format_converter
 **specific data format conversion for wikihowqa data set**  
 ## Download
-+ [WikiHowQA数据集](https://github.com/dengyang17/wikihowQA/)  
++ Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
 + `NLTK`for tokenize
 ```
 pip install NLTK
@@ -95,10 +95,10 @@ for (line1, line2) in zip(f1, f2):
         f3.write(ques + '\t' + tokens_answer[i] + '\t' + '0\t' + index.strip('\r\n') + '\n')
 ```
 
-## How to use  
+## Usage 
 ```
 python main.py test.txt summary.txt
 ```
 **Note：  
 The data file after format conversion is stored in final.txt.  
-Delete the intermediate file manually if you want to run again after failed.
+Delete the intermediate file manually if you want to run again after failed.**

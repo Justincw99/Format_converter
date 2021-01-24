@@ -1,7 +1,7 @@
 # Format_converter
 **实现对于WikiHowQA数据集的特定数据格式转换**
 ## 需要下载\安装以下内容
-+ [WikiHowQA数据集](https://drive.google.com/open?id=1cpd0nXX5d4PbIYOyaDV-BTg3XyruKLXo)  
++ [WikiHowQA数据集](https://github.com/dengyang17/wikihowQA/)  
 + `NLTK`用于分句
 ```
 pip install NLTK
@@ -80,11 +80,11 @@ for (line1, line2) in zip(f1, f2):
     ques = line1.split('\t')[0]
     answer = line1.split('\t')[1]
     index = line1.split('\t')[3]
-    a = line2.split('\t')[0].strip('(').strip(')')  #去除首尾括号
-    b = a.split(',')  #将str以'，'为间隔转换为list
+    a = line2.split('\t')[0].strip('(').strip(')')
+    b = a.split(',')
     tokens_answer = tk.sent_tokenize(answer)
     length = len(tokens_answer)
-    for i in range(length):  #判断序号是否为选中的内容来记录label值
+    for i in range(length):
         if str(i) in b or (' ' + str(i)) in b:
             f3.write(ques + '\t' + tokens_answer[i] + '\t' + '1\t' + index.strip('\r\n') + '\n')
         else:

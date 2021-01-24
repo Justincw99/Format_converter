@@ -71,7 +71,7 @@ for i in list2:
 
 Done by `find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)
 
-**4 use`ground_ Truth`and the file containing`question answer summary index`to generate data in the final format**
+**4 use`ground_truth`and the file containing`question answer summary index`to generate data in the final format**
 ```python
 #遍历并提取
 for (line1, line2) in zip(f1, f2):

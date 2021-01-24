@@ -1,5 +1,5 @@
 # Format_transformer
-**specific data format transformation for wikihowqa data set**  
+**Specific data format transformation for WikiHowQA dataset**  
 ## Download
 + Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
 + `NLTK` for tokenize

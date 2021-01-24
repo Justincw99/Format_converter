@@ -27,7 +27,7 @@ pip install NLTK
 **Note:`answer_all` and `answer_split` is the corresponding whole paragraph answer and the corresponding single sentence answer of `question`。**  
 
 ## Steps	
-**1 Extract the question and answer pairs whose `label` is 1**  
+**1 Extract the `question` and `answer` pairs whose `label` is 1**  
 ```python
 #Extract and write
 while True:

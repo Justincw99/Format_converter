@@ -1,12 +1,12 @@
 # Format_converter
 **实现对于WikiHowQA数据集的特定数据格式转换**
-## 需要安装以下python包
+## 需要下载\安装以下内容
++ [WikiHowQA数据集](https://drive.google.com/open?id=1cpd0nXX5d4PbIYOyaDV-BTg3XyruKLXo)  
 + `NLTK`用于分句
 ```
 pip install NLTK
 ```
-**Note：要注意NLTK离线下载路径问题。**  
-
+**Note：要注意NLTK离线下载安装的路径问题。**  
 ## 数据格式
 + **输入**:
 
@@ -18,10 +18,9 @@ pip install NLTK
 | index | answer_all | summary |  
 | :-----: | :------: | :-------: |  
 
-[WikiHowQA数据集下载](https://drive.google.com/open?id=1cpd0nXX5d4PbIYOyaDV-BTg3XyruKLXo)  
 + **输出**:
 
-**test_f.txt**:
+**final.txt**:
 | question | answer_split | label | index |
 | :--------: | :------: | :-----: | :-----: |
 
@@ -72,7 +71,7 @@ for i in list2:
 ```
 **3 生成`ground_truth`文件**  
 
-`ground_truth`的生成由以下脚本完成：https://github.com/sirfyx/cnndm_acl18/find_oracle_para.py  
+`ground_truth`由[cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)中的`find_oracle_para.py`生成  
 
 **4 用`ground_truth`和包含`question-answer-summary-index`的文件生成最终格式的数据**
 ```python
@@ -97,7 +96,9 @@ for (line1, line2) in zip(f1, f2):
 ```
 
 ## 使用方法  
-`python main.py test.txt summary.txt`  
+```
+python main.py test.txt summary.txt
+```
 **Note：  
 格式转换完成后的数据文件存储在工程目录的final.txt中；  
 若运行中止后想再次运行，注意手动删除中间文件。**

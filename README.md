@@ -2,10 +2,8 @@
 **Specific data format transformation for WikiHowQA dataset**  
 ## Download
 + Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
-+ `NLTK` for tokenize
-```
-pip install NLTK
-```
++ python package: [NLTK](http://www.nltk.org/install.html)  
+
 **Note：Pay attention to the path problem of nltk offline download and installation。**  
 ## Data format
 + **Input**

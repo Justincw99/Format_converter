@@ -1,10 +1,10 @@
-# Format_transformer
-**Specific data format transformation for WikiHowQA dataset**  
-## Download
-+ Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
-+ python package: [NLTK](http://www.nltk.org/install.html)  
+# Specific data format transformation for WikiHowQA dataset  
+## Download & Installation  
 
-**Note：Pay attention to the path problem of nltk offline download and installation。**  
++ Dataset: [WikiHowQA](https://github.com/dengyang17/wikihowQA/)  
++ Python package: [NLTK](http://www.nltk.org/install.html)  
+
+**Note：Pay attention to the path problem of nltk offline download and installation.**  
 ## Data format
 + **Input**
 
@@ -22,10 +22,10 @@
 | question | answer_split | label | index |
 | :--------: | :------: | :-----: | :-----: |
 
-**Note:`answer_all` and `answer_split` is the corresponding whole paragraph answer and the corresponding single sentence answer of `question`。**  
+**Note:`answer_all` and `answer_split` is the corresponding whole paragraph answer and the corresponding single sentence answer of `question`.**  
 
 ## Steps	
-**1 Extract the `question` and `answer` pairs whose `label` is 1**  
+**1 extract the `question` and `answer` pairs whose `label` is 1**  
 ```python
 #Extract and write
 while True:
@@ -35,7 +35,7 @@ while True:
     if line.split('\t')[2] == '1\n':
         f2.write(str(line))
 ```
-**2 Extract and synthesize the corresponding data of `question answer summary index`**  
+**2 extract and synthesize the corresponding data of `question answer summary index`**  
 ```python
 # Read the text content of question, answer and summary into the list
 for line in f1:
@@ -67,11 +67,11 @@ for i in list2:
     f4.write(tokens_s_rp + '\n')
     f5.write(ques + '\t' + answer + '\t' + summary.strip('\r\n') + '\t' + index + '\n')
 ```
-**3 Answer Selection**  
+**3 answer selection**  
 
 Done by `find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)
 
-**4 Use`ground_ Truth`and the file containing`question answer summary index`to generate data in the final format**
+**4 use`ground_ Truth`and the file containing`question answer summary index`to generate data in the final format**
 ```python
 #遍历并提取
 for (line1, line2) in zip(f1, f2):

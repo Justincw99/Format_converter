@@ -1,14 +1,14 @@
 # Format_converter
-**实现对于WikiHowQA数据集的特定数据格式转换**
-## 需要下载\安装以下内容
+**specific data format conversion for wikihowqa data set**  
+## Download
 + [WikiHowQA数据集](https://github.com/dengyang17/wikihowQA/)  
-+ `NLTK`用于分句
++ `NLTK`for tokenize
 ```
 pip install NLTK
 ```
-**Note：要注意NLTK离线下载安装的路径问题。**  
-## 数据格式
-+ **输入**:
+**Note：Pay attention to the path problem of nltk offline download and installation。**  
+## Data format
++ **input**:
 
 **test.txt**:
 | question | index | label |
@@ -18,18 +18,18 @@ pip install NLTK
 | index | answer_all | summary |  
 | :-----: | :------: | :-------: |  
 
-+ **输出**:
++ **output**:
 
 **final.txt**:
 | question | answer_split | label | index |
 | :--------: | :------: | :-----: | :-----: |
 
-**Note：其中`answer_all`和`answer_split`分别是是`question`的对应整段答案和对应单句答案。**  
+**Note:`answer_all` and `answer_split` is the corresponding whole paragraph answer and the corresponding single sentence answer of `question`。**  
 
-## 具体步骤	
-**1 提取出`label`为1的问答对**  
+## Steps	
+**1 Extract the question and answer pairs whose `label` is 1**  
 ```python
-#提取并写入文本
+#Extract and write
 while True:
     line = f1.readline()
     if not line:
@@ -37,9 +37,9 @@ while True:
     if line.split('\t')[2] == '1\n':
         f2.write(str(line))
 ```
-**2 提取、合成`question-answer-summary-index`对应数据**
+**2 Extract and synthesize the corresponding data of `question answer summary index`**  
 ```python
-# 将question和answer，summary文本内容读入列表中
+# Read the text content of question, answer and summary into the list
 for line in f1:
     list1 = []
     for i in line.split('\t'):
@@ -50,7 +50,7 @@ for line in f2:
     for i in line.split('\t'):
         list3.append(i)
     list4.append(list3)
-# 遍历question列表并用NLTK对对应答案进行分句，合成，生成三个文本
+# Traverse the question list and use nltk to divide the corresponding answers into sentences, synthesize and generate three texts
 for i in list2: 
     idx = int(i[1])
     ques = i[0]
@@ -69,11 +69,11 @@ for i in list2:
     f4.write(tokens_s_rp + '\n')
     f5.write(ques + '\t' + answer + '\t' + summary.strip('\r\n') + '\t' + index + '\n')
 ```
-**3 生成`ground_truth`文件**  
+**3 Answer Selection**  
 
-`ground_truth`由[cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)中的`find_oracle_para.py`生成  
+Done by`find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm_acl18/)
 
-**4 用`ground_truth`和包含`question-answer-summary-index`的文件生成最终格式的数据**
+**4 Use`ground_ Truth`and the file containing`question answer summary index' to generate data in the final format**
 ```python
 #遍历并提取
 for (line1, line2) in zip(f1, f2):
@@ -95,10 +95,10 @@ for (line1, line2) in zip(f1, f2):
         f3.write(ques + '\t' + tokens_answer[i] + '\t' + '0\t' + index.strip('\r\n') + '\n')
 ```
 
-## 使用方法  
+## How to use  
 ```
 python main.py test.txt summary.txt
 ```
 **Note：  
-格式转换完成后的数据文件存储在工程目录的final.txt中；  
-若运行中止后想再次运行，注意手动删除中间文件。**
+The data file after format conversion is stored in final.txt.  
+Delete the intermediate file manually if you want to run again after failed.

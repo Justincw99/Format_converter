@@ -27,7 +27,7 @@
 ## Steps	
 **1 extract the QA pairs whose `label` is 1**  
 ```python
-#Extract and write
+# Extract and write
 while True:
     line = f1.readline()
     if not line:
@@ -73,7 +73,7 @@ Done by `find_oracle_para.py` from [cnndm_acl18](https://github.com/sirfyx/cnndm
 
 **4 use`ground_truth`and the file containing`question answer summary index`to generate data in the final format**
 ```python
-#遍历并提取
+# Traverse and extract  
 for (line1, line2) in zip(f1, f2):
     ques = line1.split('\t')[0]
     answer = line1.split('\t')[1]

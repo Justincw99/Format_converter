@@ -25,7 +25,7 @@
 **Note:`answer_all` and `answer_split` is the corresponding whole paragraph answer and the corresponding single sentence answer of `question`.**  
 
 ## Steps	
-**1 extract the `question` and `answer` pairs whose `label` is 1**  
+**1 extract the QA pairs whose `label` is 1**  
 ```python
 #Extract and write
 while True:
